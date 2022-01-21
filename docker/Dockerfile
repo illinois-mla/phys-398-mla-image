@@ -16,7 +16,7 @@ COPY docker/requirements.txt /requirements.txt
 
 # Following https://github.com/jupyter/docker-stacks/blob/9b87b16254455fdff2eb7884a424eb19f5aba496/scipy-notebook/Dockerfile
 RUN python -m pip --no-cache-dir install  --upgrade pip setuptools wheel && \
-    python -m pip --no-cache-dir pip-tools && \
+    python -m pip --no-cache-dir install pip-tools && \
     python -m piptools compile \
         --generate-hashes \
         --output-file /requirements.lock \
