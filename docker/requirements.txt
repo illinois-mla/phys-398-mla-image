@@ -14,8 +14,7 @@ awkward~=1.7.0
 hist~=2.5.2
 vector~=0.8.4
 # jupyter
-jupyter~=1.0
-jupyterlab~=3.2.8
+# jupyter and jupyterlab provided by the base image
 jupyterlab-widgets~=1.0.2
 ipympl~=0.8.7
 
