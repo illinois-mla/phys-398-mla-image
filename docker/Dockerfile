@@ -13,7 +13,7 @@ USER ${NB_UID}
 
 WORKDIR "/home/${NB_USER}/.local"
 
-COPY docker/jupyter_notebook_config.py /etc/jupyter/
+#COPY docker/jupyter_notebook_config.py /etc/jupyter/
 COPY docker/requirements.txt "/home/${NB_USER}/.local/requirements.txt"
 
 # Following https://github.com/jupyter/docker-stacks/blob/9b87b16254455fdff2eb7884a424eb19f5aba496/scipy-notebook/Dockerfile
