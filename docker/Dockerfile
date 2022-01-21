@@ -12,16 +12,16 @@ RUN apt-get update && \
 USER ${NB_UID}
 
 COPY docker/jupyter_notebook_config.py /etc/jupyter/
-COPY docker/requirements.txt /requirements.txt
+COPY docker/requirements.txt "/home/${NB_USER}/.local/requirements.txt"
 
 # Following https://github.com/jupyter/docker-stacks/blob/9b87b16254455fdff2eb7884a424eb19f5aba496/scipy-notebook/Dockerfile
 RUN python -m pip --no-cache-dir install  --upgrade pip setuptools wheel && \
     python -m pip --no-cache-dir install pip-tools && \
     python -m piptools compile \
         --generate-hashes \
-        --output-file /requirements.lock \
-        /requirements.txt && \
-    python -m pip install --requirement /requirements.lock && \
+        --output-file "/home/${NB_USER}/.local/requirements.lock" \
+        "/home/${NB_USER}/.local/requirements.txt" && \
+    python -m pip install --requirement "/home/${NB_USER}/.local/requirements.lock" && \
     conda clean --all -f -y && \
     echo "# Activate ipywidgets extension in the environment that runs the notebook server" && \
     jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
