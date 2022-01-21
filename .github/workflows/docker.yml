@@ -2,10 +2,10 @@ name: Docker Images
 
 on:
   push:
-    branches:
-    - master
-    tags:
-    - v*
+    # branches:
+    # - master
+    # tags:
+    # - v*
   pull_request:
     branches:
     - master
@@ -101,11 +101,11 @@ jobs:
 
       - name: Build and publish to registry
         # every PR will trigger a push event on master, so check the push event is actually coming from master
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'PHYS-214-Quantum-Physics/PHYS-2XX-image'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'illinois-mla/phys-398-mla-image'
         id: docker_build_latest
         uses: docker/build-push-action@v2
         with:
-          context: docker
+          context: .
           file: docker/Dockerfile
           tags: |
             physicsillinois/phys-398-mla:latest
@@ -117,11 +117,11 @@ jobs:
           push: true
 
       - name: Build and publish to registry with release tag
-        if: github.event_name == 'release' && github.event.action == 'published' && github.repository == 'PHYS-214-Quantum-Physics/PHYS-2XX-image'
+        if: github.event_name == 'release' && github.event.action == 'published' && github.repository == 'illinois-mla/phys-398-mla-image'
         id: docker_build_release
         uses: docker/build-push-action@v2
         with:
-          context: docker
+          context: .
           file: docker/Dockerfile
           tags: ${{ steps.prep.outputs.tags }}
           labels: |
