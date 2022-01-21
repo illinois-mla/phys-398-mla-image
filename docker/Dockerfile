@@ -11,6 +11,8 @@ RUN apt-get update && \
 
 USER ${NB_UID}
 
+WORKDIR "/home/${NB_USER}/.local"
+
 COPY docker/jupyter_notebook_config.py /etc/jupyter/
 COPY docker/requirements.txt "/home/${NB_USER}/.local/requirements.txt"
 
@@ -32,12 +34,12 @@ RUN fix-permissions "/home/${NB_USER}" && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
+WORKDIR ${HOME}
+
 # Import matplotlib the first time to build the font cache.
 ENV XDG_CACHE_HOME="/home/${NB_USER}/.cache/"
 
 RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot" && \
     fix-permissions "/home/${NB_USER}"
-
-WORKDIR ${HOME}
 
 CMD ["start.sh", "jupyter", "lab"]
