@@ -25,7 +25,6 @@ RUN mkdir -p "/home/${NB_USER}/.local" && \
         "/home/${NB_USER}/.local/requirements.txt" && \
     python -m pip install --requirement "/home/${NB_USER}/.local/requirements.lock" && \
     conda clean --all -f -y && \
-    echo "# Activate ipywidgets extension in the environment that runs the notebook server" && \
     jupyter lab clean -y && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}" && \
