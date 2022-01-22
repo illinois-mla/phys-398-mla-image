@@ -3,12 +3,12 @@ name: Docker Images
 on:
   push:
     branches:
-    - master
+    - main
     tags:
     - v*
   pull_request:
     branches:
-    - master
+    - main
   # Run weekly each Sunday at 1:23 UTC
   schedule:
     - cron: '23 1 * * 0'
@@ -103,8 +103,8 @@ jobs:
           -c 'python -m pip list'
 
       - name: Build and publish to registry
-        # every PR will trigger a push event on master, so check the push event is actually coming from master
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'illinois-mla/phys-398-mla-image'
+        # every PR will trigger a push event on main, so check the push event is actually coming from main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'illinois-mla/phys-398-mla-image'
         id: docker_build_latest
         uses: docker/build-push-action@v2
         with:
