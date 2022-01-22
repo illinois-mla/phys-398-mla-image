@@ -11,7 +11,7 @@ RUN apt-get update && \
 
 USER ${NB_UID}
 
-COPY docker/jupyter_notebook_config.py /etc/jupyter/
+# COPY docker/jupyter_notebook_config.py /etc/jupyter/
 COPY docker/requirements.txt /requirements.txt
 
 # Following https://github.com/jupyter/docker-stacks/blob/9b87b16254455fdff2eb7884a424eb19f5aba496/scipy-notebook/Dockerfile
