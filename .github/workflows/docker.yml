@@ -16,6 +16,10 @@ on:
     types: [published]
   workflow_dispatch:
 
+concurrency:
+  group: docker-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   docker:
     name: Build and publish Docker images
