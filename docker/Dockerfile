@@ -15,6 +15,8 @@ COPY docker/jupyter_notebook_config.py /etc/jupyter/
 COPY docker/requirements.txt /requirements.txt
 
 # Following https://github.com/jupyter/docker-stacks/blob/9b87b16254455fdff2eb7884a424eb19f5aba496/scipy-notebook/Dockerfile
+# PrairieLearn seems to need port 8080 to work, so ensure that both /etc/jupyter/jupyter_notebook_config.py
+# and /etc/jupyter/jupyter_server_config.py have 8080 and not 8888
 RUN mkdir -p "/home/${NB_USER}/.local" && \
     cp /requirements.txt "/home/${NB_USER}/.local/requirements.txt" && \
     python -m pip --no-cache-dir install  --upgrade pip setuptools wheel && \
