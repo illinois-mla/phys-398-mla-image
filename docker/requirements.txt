@@ -8,11 +8,11 @@ seaborn~=0.11.2
 # torch~=1.10.1
 # jax~=0.2.27
 # jaxlib~=0.1.75
-# # Scikit-HEP
-# uproot~=4.1.9
-# awkward~=1.7.0
-# hist~=2.5.2
-# vector~=0.8.4
+# Scikit-HEP
+uproot~=4.1.9
+awkward~=1.7.0
+hist~=2.5.2
+vector~=0.8.4
 # jupyter
 # jupyter and jupyterlab provided by the base image
 jupyterlab-widgets~=1.0.2
