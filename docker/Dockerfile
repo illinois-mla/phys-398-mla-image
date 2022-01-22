@@ -19,7 +19,7 @@ COPY docker/requirements.txt /requirements.txt
 # and /etc/jupyter/jupyter_server_config.py have 8080 and not 8888
 RUN mkdir -p "/home/${NB_USER}/.local" && \
     cp /requirements.txt "/home/${NB_USER}/.local/requirements.txt" && \
-    python -m pip --no-cache-dir install  --upgrade pip setuptools wheel && \
+    python -m pip --no-cache-dir install --upgrade pip setuptools wheel && \
     python -m pip --no-cache-dir install pip-tools && \
     python -m piptools compile \
         --generate-hashes \
