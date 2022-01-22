@@ -28,7 +28,8 @@ RUN mkdir -p "/home/${NB_USER}/.local" && \
     jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
     jupyter lab clean -y && \
     fix-permissions "${CONDA_DIR}" && \
-    fix-permissions "/home/${NB_USER}"
+    fix-permissions "/home/${NB_USER}" && \
+    grep -rl "8888" /etc/jupyter | xargs sed -i 's/8888/8080/g'
 
 WORKDIR ${HOME}
 
