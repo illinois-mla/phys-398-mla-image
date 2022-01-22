@@ -25,7 +25,7 @@ RUN mkdir -p "/home/${NB_USER}/.local" && \
         --generate-hashes \
         --output-file "/home/${NB_USER}/.local/requirements.lock" \
         "/home/${NB_USER}/.local/requirements.txt" && \
-    python -m pip install --requirement "/home/${NB_USER}/.local/requirements.lock" && \
+    python -m pip --no-cache-dir install --requirement "/home/${NB_USER}/.local/requirements.lock" && \
     conda clean --all -f -y && \
     jupyter lab clean -y && \
     fix-permissions "${CONDA_DIR}" && \
