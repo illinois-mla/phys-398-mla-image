@@ -72,32 +72,32 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Test build
-        id: docker_build_test
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: docker/Dockerfile
-          tags: ${{ steps.prep.outputs.tags }}
-          labels: |
-            org.opencontainers.image.source=${{ github.event.repository.html_url }}
-            org.opencontainers.image.created=${{ steps.prep.outputs.created }}
-            org.opencontainers.image.revision=${{ github.sha }}
-          load: true
-          push: false
+      # - name: Test build
+      #   id: docker_build_test
+      #   uses: docker/build-push-action@v2
+      #   with:
+      #     context: .
+      #     file: docker/Dockerfile
+      #     tags: ${{ steps.prep.outputs.tags }}
+      #     labels: |
+      #       org.opencontainers.image.source=${{ github.event.repository.html_url }}
+      #       org.opencontainers.image.created=${{ steps.prep.outputs.created }}
+      #       org.opencontainers.image.revision=${{ github.sha }}
+      #     load: true
+      #     push: false
 
-      - name: Image digest
-        run: echo ${{ steps.docker_build_test.outputs.digest }}
+      # - name: Image digest
+      #   run: echo ${{ steps.docker_build_test.outputs.digest }}
 
-      - name: List built images
-        run: docker images
+      # - name: List built images
+      #   run: docker images
 
-      - name: Run test program
-        run: >-
-          docker run --rm
-          --entrypoint=/bin/bash
-          physicsillinois/phys-398-mla:sha-${GITHUB_SHA::8}
-          -c 'python -m pip list'
+      # - name: Run test program
+      #   run: >-
+      #     docker run --rm
+      #     --entrypoint=/bin/bash
+      #     physicsillinois/phys-398-mla:sha-${GITHUB_SHA::8}
+      #     -c 'python -m pip list'
 
       - name: Build and publish to registry
         # every PR will trigger a push event on master, so check the push event is actually coming from master
