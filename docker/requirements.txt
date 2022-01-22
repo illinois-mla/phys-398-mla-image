@@ -15,6 +15,6 @@ seaborn~=0.11.2
 # vector~=0.8.4
 # jupyter
 # jupyter and jupyterlab provided by the base image
-jupyterlab-widgets~=1.0.2
-ipympl~=0.8.7
+# jupyterlab-widgets~=1.0.2
+# ipympl~=0.8.7
 
