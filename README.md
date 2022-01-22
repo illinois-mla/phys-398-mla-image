@@ -1,4 +1,4 @@
-# PHYS 2XX Labs Docker Image
+# PHYS 398 MLA Docker Image
 
 Docker image for the PHYS 398 MLA used to power the [PrairieLearn workspaces](https://prairielearn.readthedocs.io/en/latest/workspaces/).
 
