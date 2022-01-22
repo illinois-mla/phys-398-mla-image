@@ -2,16 +2,16 @@ name: Docker Images
 
 on:
   push:
-    # branches:
-    # - master
-    # tags:
-    # - v*
+    branches:
+    - master
+    tags:
+    - v*
   pull_request:
     branches:
     - master
-  # Run daily at 1:23 UTC
+  # Run weekly each Sunday at 1:23 UTC
   schedule:
-    - cron:  '23 1 * * 0'
+    - cron: '23 1 * * 0'
   release:
     types: [published]
   workflow_dispatch:
@@ -104,7 +104,7 @@ jobs:
 
       - name: Build and publish to registry
         # every PR will trigger a push event on master, so check the push event is actually coming from master
-        # if: github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'illinois-mla/phys-398-mla-image'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'illinois-mla/phys-398-mla-image'
         id: docker_build_latest
         uses: docker/build-push-action@v2
         with:
@@ -112,7 +112,6 @@ jobs:
           file: docker/Dockerfile
           tags: |
             physicsillinois/phys-398-mla:latest
-            physicsillinois/phys-398-mla:spring-2022
             ghcr.io/${{ steps.prep.outputs.repo_name_lowercase }}:latest
           labels: |
             org.opencontainers.image.source=${{ github.event.repository.html_url }}
