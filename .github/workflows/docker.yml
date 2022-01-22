@@ -109,6 +109,7 @@ jobs:
           file: docker/Dockerfile
           tags: |
             physicsillinois/phys-398-mla:latest
+            physicsillinois/phys-398-mla:spring-2022
             ghcr.io/${{ steps.prep.outputs.repo_name_lowercase }}:latest
           labels: |
             org.opencontainers.image.source=${{ github.event.repository.html_url }}
