@@ -11,6 +11,7 @@ RUN apt-get update && \
 
 USER ${NB_UID}
 
+COPY docker/jupyter_notebook_config.py /etc/jupyter/
 COPY docker/requirements.txt /requirements.txt
 
 # Following https://github.com/jupyter/docker-stacks/blob/9b87b16254455fdff2eb7884a424eb19f5aba496/scipy-notebook/Dockerfile
@@ -28,8 +29,7 @@ RUN mkdir -p "/home/${NB_USER}/.local" && \
     jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
     jupyter lab clean -y && \
     fix-permissions "${CONDA_DIR}" && \
-    fix-permissions "/home/${NB_USER}" && \
-    grep -rl "8888" /etc/jupyter | xargs sed -i 's/8888/8080/g'
+    fix-permissions "/home/${NB_USER}"
 
 WORKDIR ${HOME}
 
