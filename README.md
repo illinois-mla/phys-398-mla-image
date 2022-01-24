@@ -14,3 +14,11 @@ Docker image for the PHYS 398 MLA used to power the [PrairieLearn workspaces](ht
 ```
 docker pull physicsillinois/phys-398-mla:latest
 ```
+
+## Use
+
+To run the Docker image as a container with persistence of any files that are generated in the environment, you can bind mount your current working directory to the working directory inside of the container and expose the port `8080`
+
+```
+docker run --rm -ti -v $PWD:/home/jovyan/work -w /home/jovyan/work -p 8080:8080 physicsillinois/phys-398-mla:spring-2022
+```
