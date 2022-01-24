@@ -27,6 +27,20 @@ this will then start a JupyterLab server instance, which you can open up on your
 
 Any files that exist in your current working directory will be available inside of the Docker image in your JupyterLab environment, and any files you create inside the JupyterLab environment will be saved in your current working directory.
 
+### Optional easy way
+
+If you want to use a simple Bash script that will do this for you, you can first just download the `run_notebook_standalone.sh` script from this repo with something like
+
+```
+curl -sLO https://raw.githubusercontent.com/illinois-mla/phys-398-mla-image/main/run_notebook_standalone.sh
+```
+
+and then run it from the directory with your notebook you'd like to run
+
+```
+bash run_notebook_standalone.sh
+```
+
 ## Interactive Jupyter widgets
 
 The image has support for Jupyter widgets enabled, like [`ipympl`][ipyml-github], that allow for interactive elements to be used.
