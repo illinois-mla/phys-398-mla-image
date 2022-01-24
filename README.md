@@ -29,16 +29,16 @@ Any files that exist in your current working directory will be available inside 
 
 ### Optional easy way
 
-If you want to use a simple Bash script that will do this for you, you can first just download the `run_notebook_standalone.sh` script from this repo with something like
+If you want to use a simple Bash script that will do this for you, you can first just download the `run_jupyter_standalone.sh` script from this repo with something like
 
 ```
-curl -sLO https://raw.githubusercontent.com/illinois-mla/phys-398-mla-image/main/run_notebook_standalone.sh
+curl -sLO https://raw.githubusercontent.com/illinois-mla/phys-398-mla-image/main/run_jupyter_standalone.sh
 ```
 
 and then run it from the directory with your notebook you'd like to run
 
 ```
-bash run_notebook_standalone.sh
+bash run_jupyter_standalone.sh
 ```
 
 ## Interactive Jupyter widgets
