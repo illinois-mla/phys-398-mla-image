@@ -15,7 +15,7 @@ awkward~=1.7.0
 hist~=2.5.2
 vector~=0.8.4
 # course specific
-git+https://github.com/dkirkby/MachineLearningStatistics/archive/3aa7385e1fd0b1572013bdf1f1c823806b744b2d.zip#egg=mls
+https://github.com/dkirkby/MachineLearningStatistics/archive/3aa7385e1fd0b1572013bdf1f1c823806b744b2d.zip#egg=mls
 emcee~=3.1.1  # required by mls
 # jupyter
 # jupyter and jupyterlab provided by the base image
