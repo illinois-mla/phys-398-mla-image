@@ -1,6 +1,7 @@
 # pydata tooling
 scipy~=1.7.3
 pandas~=1.3.5
+tables~=3.7.0  # required by pandas.read_hdf
 seaborn~=0.11.2
 # machine learning
 scikit-learn~=1.0.2
@@ -13,6 +14,9 @@ uproot~=4.1.9
 awkward~=1.7.0
 hist~=2.5.2
 vector~=0.8.4
+# course specific
+https://github.com/dkirkby/MachineLearningStatistics/archive/3aa7385e1fd0b1572013bdf1f1c823806b744b2d.zip#egg=mls
+emcee~=3.1.1  # required by mls
 # jupyter
 # jupyter and jupyterlab provided by the base image
 jupyterlab-widgets~=1.0.2

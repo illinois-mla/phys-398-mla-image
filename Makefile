@@ -2,7 +2,7 @@ all: image
 
 defualt: image
 
-BASE_IMAGE="jupyter/minimal-notebook:latest"
+BASE_IMAGE="jupyter/minimal-notebook:lab-3.2.8"
 
 image:
 	docker pull $(BASE_IMAGE)
