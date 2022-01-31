@@ -28,7 +28,7 @@ COPY docker/requirements.txt /requirements.txt
 # sdist.
 RUN mkdir -p "/home/${NB_USER}/.local" && \
     cp /requirements.txt "/home/${NB_USER}/.local/requirements.txt" && \
-    python -m pip --no-cache-dir install --upgrade pip setuptools wheel && \
+    python -m pip --no-cache-dir install --upgrade 'pip<22.0' setuptools wheel && \
     python -m pip --no-cache-dir install pip-tools && \
     python -m piptools compile \
         --generate-hashes \
