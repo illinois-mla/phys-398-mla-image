@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=jupyter/minimal-notebook:latest
+ARG BASE_IMAGE=jupyter/minimal-notebook:lab-3.2.8
 FROM ${BASE_IMAGE} as base
 
 USER root
