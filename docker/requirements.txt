@@ -18,6 +18,7 @@ vector==0.8.5
 https://github.com/dkirkby/MachineLearningStatistics/archive/3aa7385e1fd0b1572013bdf1f1c823806b744b2d.zip#egg=mls
 emcee==3.1.1  # required by mls
 wpca==0.1  # Used in Dimensionality.ipynb
+astroML==1.0.2  # Used in Density.ipynb
 # jupyter
 # jupyter and jupyterlab provided by the base image
 jupyterlab-widgets==1.0.2
