@@ -38,7 +38,7 @@ RUN mkdir -p "/home/${NB_USER}/.local" && \
         --no-deps \
         --require-hashes \
         --only-binary :all: \
-        --no-binary termcolor,jax,wpca \
+        --no-binary termcolor,jax,wpca,autograd \
         --requirement "/home/${NB_USER}/.local/requirements.lock" && \
     conda clean --all -f -y && \
     jupyter lab clean -y && \
