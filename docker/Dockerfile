@@ -28,12 +28,8 @@ COPY docker/requirements.txt /requirements.txt
 # sdist.
 RUN mkdir -p "/home/${NB_USER}/.local" && \
     cp /requirements.txt "/home/${NB_USER}/.local/requirements.txt" && \
+    cp /requirements.lock "/home/${NB_USER}/.local/requirements.lock" && \
     python -m pip --no-cache-dir install --upgrade pip setuptools wheel && \
-    python -m pip --no-cache-dir install 'pip-tools>=6.5.0' && \
-    python -m piptools compile \
-        --generate-hashes \
-        --output-file "/home/${NB_USER}/.local/requirements.lock" \
-        "/home/${NB_USER}/.local/requirements.txt" && \
     python -m pip --no-cache-dir install \
         --no-deps \
         --require-hashes \
