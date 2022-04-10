@@ -4,7 +4,7 @@
 python -m pip show pip-tools &> /dev/null
 if [ "$?" == "1" ]; then
     python -m pip install --upgrade pip setuptools wheel
-    python -m pip install --upgrade pip-tools
+    python -m pip install --upgrade 'pip-tools>=6.5.0'
 fi
 
 pip-compile \
