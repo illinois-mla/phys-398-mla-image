@@ -12,6 +12,7 @@ absl-py==1.0.0 \
     #   jaxlib
     #   tensorboard
     #   tensorflow
+    #   tensorflow-probability
 argon2-cffi==21.3.0 \
     --hash=sha256:8c976986f2c5c0e5000919e6de187906cfd81fb1c72bf9d88c01177e77da7f80 \
     --hash=sha256:d384164d944190a7dd7ef22c6aa3ff197da12962bd04b17f64d4e93d934dba5b
@@ -250,6 +251,10 @@ click==8.1.2 \
     --hash=sha256:24e1a4a9ec5bf6299411369b208c1df2188d9eb8d916302fe6bf03faed227f1e \
     --hash=sha256:479707fe14d9ec9a0757618b7a100a0ae4c4e236fac5b7f80ca68028141a1a72
     # via histoprint
+cloudpickle==2.0.0 \
+    --hash=sha256:5cd02f3b417a783ba84a4ec3e290ff7929009fe51f6405423cfccfadd43ba4a4 \
+    --hash=sha256:6b2df9741d06f43839a3275c4e6632f7df6487a1f181f5f46a052d3c917c3d11
+    # via tensorflow-probability
 cycler==0.11.0 \
     --hash=sha256:3a27e95f763a428a739d2add979fa7494c912a32c17c4c38c4d5f082cad165a3 \
     --hash=sha256:9c87405839a19696e837b3b818fed3f5f69f16f1eec1a1ad77e043dcea9c772f
@@ -277,11 +282,45 @@ debugpy==1.6.0 \
 decorator==5.1.1 \
     --hash=sha256:637996211036b6385ef91435e4fae22989472f9d571faba8927ba8253acbc330 \
     --hash=sha256:b8c3f85900b9dc423225913c5aace94729fe1fa9763b38939a95226f02d37186
-    # via ipython
+    # via
+    #   ipython
+    #   tensorflow-probability
 defusedxml==0.7.1 \
     --hash=sha256:1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69 \
     --hash=sha256:a352e7e428770286cc899e2542b6cdaedb2b4953ff269a210103ec58f6198a61
     # via nbconvert
+dm-tree==0.1.6 \
+    --hash=sha256:02ffa673f20b1756dcf085ef2c354bc59416d843b384c7b71c421f873ffc36c0 \
+    --hash=sha256:0f8a43ec475776a4e7091ef0ae01e8328f3817f723640a90d31c7acc07e830f7 \
+    --hash=sha256:2c91e472aab5c5e083c12d0a9396bbd7695031348721f709a9c6f2449e53dab6 \
+    --hash=sha256:2fa9c6e56cbd22cdffec42dc8b20464872b07c4535d8effc537fe0d31930b084 \
+    --hash=sha256:3d02ba486c8768dcb7c2164fa09af118526df9caf71833927d43da9efc1880f9 \
+    --hash=sha256:51d3584b6f5c1d2d6f1fbdf3286d92313ecef894294cda3bcf35e49366d135b6 \
+    --hash=sha256:5269183f80f1ae37543a2a30a8f78e4b0460d5da74fb5ac42dc8a476ef8d707e \
+    --hash=sha256:603392f1a7818a4f43a7033c2061ae7c2085a4a728171b0bbca76bd107fcdfb0 \
+    --hash=sha256:6776404b23b4522c01012ffb314632aba092c9541577004ab153321e87da439a \
+    --hash=sha256:6d5f64d89f657b11f429e13b1378c8cfbe4baef50e7ab31f3689bfe0cf4a2508 \
+    --hash=sha256:8425454192e954692d9a1e0f7b374b3b7030916b17b6055951dc17d58b6fe1b8 \
+    --hash=sha256:889eae86e0d2d4b8da8eb2edc7186b45a5f92e00c8dd77f2a5c8422f03db18f4 \
+    --hash=sha256:8d59c5098456667b28c607110537c86c25cbd0ee455f21d033c60ef2d7f48d81 \
+    --hash=sha256:91b895194a1ffc5453d27137c10f03cf9422e43ecb5c1d533f7a24eb46c71143 \
+    --hash=sha256:a69861be3f2e6d55a86c280e9625ddd9a77f0c9c9936075ad7773bfdfdca70a3 \
+    --hash=sha256:a8814a5c838f79e9db22a51369c74f4d92e7f1485ec55d7f665ae4d98478cb4f \
+    --hash=sha256:affc7a6d29442a143c60efb2f03bcb95424d4fe6168f3d31de892c1e601fa0e6 \
+    --hash=sha256:bd347c74254ba320d57b0e102558c1189e3b4ae1bae952f9aef156b5914567c8 \
+    --hash=sha256:c4e8d868fc9a75cbdb67e78069b33e62a4c69bc182c1d2adc29ab08e283912d8 \
+    --hash=sha256:c6185d750ae7078d299262d16f0b8f2ba699a498abc8fe0e213817763796dd5f \
+    --hash=sha256:d6780c9bf3f9d388706cf02efd0866c94c85b5330c92a0989bddfdd9878cd0e8 \
+    --hash=sha256:e28ba91d3d97230b831716db401ce116ae5c7dcd025161ac16ecb8bd5c870a85 \
+    --hash=sha256:e86ae05b002e825680a5da0602376da95caed24ecc54569891cfd3b1503e6786 \
+    --hash=sha256:e87d06478356a2d92c3940dedebcd92a14ad37fba10ebb1839c8140693b83c0a \
+    --hash=sha256:ec003873d759635ba6cc5eabc6da886bc00f6b5ec23a6baffc4fd0218231adad \
+    --hash=sha256:f3bec40e658fe7546c3a56849c743ac9a498e620b3236e82e171801938a56679
+    # via tensorflow-probability
+edward2==0.0.2 \
+    --hash=sha256:b27f3ba5a08598e34473250addf1ce71e9288c5065bc034904877e23393520b1 \
+    --hash=sha256:fab43ab87554409b713918bf0f1068f1209db10ea341879235503e0e7f734c6d
+    # via -r requirements.txt
 emcee==3.1.1 \
     --hash=sha256:48ffc6a7f5c51760b7a836056184c7286a9959ef81b45b977b02794f1210fb5c \
     --hash=sha256:e01d68a84725f6c0734c3c31394e88a7252b12fddb44efe981e10956a7028a93
@@ -316,7 +355,9 @@ future==0.18.2 \
 gast==0.4.0 \
     --hash=sha256:40feb7b8b8434785585ab224d1568b857edb18297e5a3047f1ba012bc83b42c1 \
     --hash=sha256:b7adcdd5adbebf1adf17378da5ba3f543684dbec47b1cda1f3997e573cd542c4
-    # via tensorflow
+    # via
+    #   tensorflow
+    #   tensorflow-probability
 google-auth==2.6.3 \
     --hash=sha256:5e079eb4d21df1853d55cf2b6766b77ef36f7f7bdaf7d4a70434aa97c7578d60 \
     --hash=sha256:d65bb0e3701eaaa64fd2aa85e1325580524b0bddc6dc5db3ab89c481b6a20141
@@ -765,6 +806,7 @@ numpy==1.22.3 \
     #   tables
     #   tensorboard
     #   tensorflow
+    #   tensorflow-probability
     #   uhi
     #   uproot
     #   vector
@@ -1235,12 +1277,14 @@ six==1.16.0 \
     #   asttokens
     #   astunparse
     #   bleach
+    #   dm-tree
     #   google-auth
     #   google-pasta
     #   grpcio
     #   keras-preprocessing
     #   python-dateutil
     #   tensorflow
+    #   tensorflow-probability
 soupsieve==2.3.2 \
     --hash=sha256:0bcc6d7432153063e3df09c3ac9442af3eba488715bfcad6a4c38ccb2a523124 \
     --hash=sha256:a714129d3021ec17ce5be346b1007300558b378332c289a1a20e7d4de6ff18a5
@@ -1320,6 +1364,9 @@ tensorflow-io-gcs-filesystem==0.24.0 \
     --hash=sha256:d1eb5e9be62040c5a249ae8adaae7e61f65b59541139e4d6767157f25a224bf5 \
     --hash=sha256:f63d70d7fce10c63f21bdd8e72244958afc0c495966831a547f038543c9633f7
     # via tensorflow
+tensorflow-probability==0.15.0 \
+    --hash=sha256:a5c6d1116fa619fa3fcfe076ff81adc276989fb58da179e464c1fd25d824530a
+    # via -r requirements.txt
 termcolor==1.1.0 \
     --hash=sha256:1d6d69ce66211143803fbc56652b41d73b4a400a2891d7bf7a1cdf4c02de613b
     # via tensorflow
