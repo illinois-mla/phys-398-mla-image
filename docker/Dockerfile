@@ -13,6 +13,7 @@ USER ${NB_UID}
 
 COPY docker/jupyter_notebook_config.py /etc/jupyter/
 COPY docker/requirements.txt /requirements.txt
+COPY docker/requirements.lock /requirements.lock
 
 # Following https://github.com/jupyter/docker-stacks/blob/9b87b16254455fdff2eb7884a424eb19f5aba496/scipy-notebook/Dockerfile
 # PrairieLearn seems to need port 8080 to work, so ensure that both /etc/jupyter/jupyter_notebook_config.py
@@ -28,12 +29,8 @@ COPY docker/requirements.txt /requirements.txt
 # sdist.
 RUN mkdir -p "/home/${NB_USER}/.local" && \
     cp /requirements.txt "/home/${NB_USER}/.local/requirements.txt" && \
+    cp /requirements.lock "/home/${NB_USER}/.local/requirements.lock" && \
     python -m pip --no-cache-dir install --upgrade pip setuptools wheel && \
-    python -m pip --no-cache-dir install 'pip-tools>=6.5.0' && \
-    python -m piptools compile \
-        --generate-hashes \
-        --output-file "/home/${NB_USER}/.local/requirements.lock" \
-        "/home/${NB_USER}/.local/requirements.txt" && \
     python -m pip --no-cache-dir install \
         --no-deps \
         --require-hashes \
