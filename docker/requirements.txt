@@ -20,6 +20,7 @@ emcee==3.1.1  # required by mls
 wpca==0.1  # Used in Dimensionality.ipynb
 astroML==1.0.2  # Used in Density.ipynb
 autograd==1.3  # Used in Optimization.ipynb
+tensorflow_probability==0.15.0
 # jupyter
 # jupyter and jupyterlab provided by the base image
 jupyterlab-widgets==1.0.2
