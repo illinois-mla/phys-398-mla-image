@@ -19,6 +19,10 @@ While it may be possible for the intended code to work in an environment that pr
 
 ### Lock file
 
+To create a full description of the environment the high level `requirements.txt` can be "compiled" into a lock file that lists all libraries and all of their dependencies pinned at the hash level using [`pip-tools`][pip-tools].
+The lock file is designed to make the computing environment as fully reproducible as possible. Given the complexity of the dependency solve that might be necessary to meet all dependency requirements, the lock file should not be edited by hand at all and should only be created or updated through use of `pip-tools`'s `pip-compile` command.
+The lock file should be kept under version control though so that any build of the Docker image's environment is fully reproducible in the future.
+
 [pip-tools]: https://pip-tools.rtfd.io/
 [PEP 440]: https://peps.python.org/pep-0440/
 [application vs library]: https://iscinumpy.dev/post/app-vs-library/
