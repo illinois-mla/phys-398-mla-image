@@ -15,7 +15,7 @@ A developer should control the environment by describing the high level dependen
 These dependencies will be the things that will actually be imported by the intended users (e.g. `pandas` and `matplotlib`) and not the dependencies of those imports.
 To make things more stable and reproducible the dependencies in the `requirements.txt` should all be fully pinned (i.e., for a SemVer package fully specified down to the patch release).
 
-While it may be possible for the intended code to work in an environment that provides a less complete description, e.g. using [compatible version syntax][PEP 440] (`~=`) to pin down only to the minor release, the computing environment should be viewed as [an application][application vs library] &mdash; the goal is runtime stability for existing code.
+While it may be possible for the intended code to work in an environment that provides a less complete description, e.g. using [compatible release syntax][PEP 440] (`~=`) to pin down only to the minor release, the computing environment should be viewed as [an application][application vs library] &mdash; the goal is runtime stability for existing code.
 
 ### Lock file
 
@@ -40,7 +40,7 @@ to produce the lock file that would be generated for that version of CPython.
 To update the Python environment, a developer should:
 
 1. Add to or revise the dependencies defined in the high level `requirements.txt`.
-2. Compile the lock file from the updated `requirements.txt` using `compile_dependencies.sh`.
+2. Compile the `requirements.lock` lock file from the updated `requirements.txt` using `compile_dependencies.sh`.
 3. Commit both the updated `requirements.txt` and `requirements.lock` to version control.
 4. Rebuild the Docker image with the updated files.
 
