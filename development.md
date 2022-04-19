@@ -44,6 +44,10 @@ To update the Python environment, a developer should:
 3. Commit both the updated `requirements.txt` and `requirements.lock` to version control.
 4. Rebuild the Docker image with the updated files.
 
+## Installing the environment
+
+TODO: Describe secure-install
+
 ## Updating the tagged Docker images
 
 TODO...
