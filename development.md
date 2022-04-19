@@ -2,7 +2,7 @@
 
 ## Base image
 
-To simplify things, the base image used is `jupyter/minimal-notebook:lab-3.2.8` which maintained by the Jupyter team to provide a minimal environment for being able to run Jupyter Lab in an interactive mode from inside the container.
+To simplify things, the base image used is `jupyter/minimal-notebook:lab-3.2.8` which is maintained by the Jupyter team to provide a minimal environment for being able to run Jupyter Lab in an interactive mode from inside the container.
 Updating this base image tag can result in the CPython runtime changing in addition to other dependencies, so it should only be changed if the entire environment is going to be rebuilt.
 
 ## Python environment
@@ -64,10 +64,33 @@ The options that are enabled to have `pip` take advantage of the lock file are d
 
 ## Updating the tagged Docker images
 
-TODO...
+The Docker image will be built automatically and deployed to [Docker Hub][Docker Hub] through CI/CD with GitHub Actions.
+To avoid accidentally overwriting a course tag with a new build the tag procedure is manual for the time being.
+
+1. After a build has successfully finished and deployed to Docker Hub pull it down locally
+```
+physicsillinois/phys-398-mla:latest
+```
+2. Tag the pulled image with the course tag you want to distribute (e.g. `spring-2022`)
+```
+docker tag physicsillinois/phys-398-mla:latest physicsillinois/phys-398-mla:<new tag goes here>
+```
+3. Push the new tag to Docker Hub. This will be very fast as the digest of the image layers already exist on Docker Hub and it will recognize this and just associate a new tag to them instead of pushing the full image.
+```
+docker push physicsillinois/phys-398-mla:<new tag goes here>
+```
+
+It is recommended after this that you clean up your Docker image cache with
+
+```
+docker system prune
+```
+
+If you are working with Docker locally on a regular basis you probably want to do this at least daily.
 
 [pip-tools]: https://pip-tools.rtfd.io/
 [PEP 440]: https://peps.python.org/pep-0440/
 [application vs library]: https://iscinumpy.dev/post/app-vs-library/
 [Brett Cannon]: https://github.com/brettcannon
 [pip-secure-install]: https://github.com/brettcannon/pip-secure-install
+[Docker Hub]: https://hub.docker.com/r/physicsillinois/phys-398-mla
