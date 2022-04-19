@@ -46,7 +46,21 @@ To update the Python environment, a developer should:
 
 ## Installing the environment
 
-TODO: Describe secure-install
+The lock file provides the _capability_ for a fully reproducible environment, but to truly ensure it is reproducible it needs to be installed in a secure method as well.
+A good way to do this is to implement [Brett Cannon][Brett Cannon]'s "[secure-install][pip-secure-install]" procedure with `pip`.
+The options that are enabled to have `pip` take advantage of the lock file are described in the following section taken from the [GitHub Action implementation][pip-secure-install].
+
+> ## Design
+>
+> A few options are turned on for pip to make sure [installations are secure](https://www.python.org/dev/peps/pep-0665/#secure-by-design) and reproducible:
+>
+> - A requirements file must be specified to make sure all dependencies are known
+>   statically for auditing purposes (`-r`).
+> - No dependency resolution is done to make sure the requirements file is
+>   complete (`--no-deps`).
+> - All requirements must have a hash provided to make sure the files have not
+>   been tampered with (`--require-hashes`).
+> - Only wheels are allowed to have reproducible installs (`--only-binary :all:`).
 
 ## Updating the tagged Docker images
 
@@ -55,3 +69,5 @@ TODO...
 [pip-tools]: https://pip-tools.rtfd.io/
 [PEP 440]: https://peps.python.org/pep-0440/
 [application vs library]: https://iscinumpy.dev/post/app-vs-library/
+[Brett Cannon]: https://github.com/brettcannon
+[pip-secure-install]: https://github.com/brettcannon/pip-secure-install
