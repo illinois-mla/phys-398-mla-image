@@ -44,6 +44,10 @@ To update the Python environment, a developer should:
 3. Commit both the updated `requirements.txt` and `requirements.lock` to version control.
 4. Rebuild the Docker image with the updated files.
 
+## Updating the tagged Docker images
+
+TODO...
+
 [pip-tools]: https://pip-tools.rtfd.io/
 [PEP 440]: https://peps.python.org/pep-0440/
 [application vs library]: https://iscinumpy.dev/post/app-vs-library/
