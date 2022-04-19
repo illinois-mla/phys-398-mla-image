@@ -19,9 +19,30 @@ While it may be possible for the intended code to work in an environment that pr
 
 ### Lock file
 
-To create a full description of the environment the high level `requirements.txt` can be "compiled" into a lock file that lists all libraries and all of their dependencies pinned at the hash level using [`pip-tools`][pip-tools].
+To create a full description of the environment the high level `requirements.txt` can be "compiled" into a `requirements.lock` lock file that lists all libraries and all of their dependencies pinned at the hash level using [`pip-tools`][pip-tools].
 The lock file is designed to make the computing environment as fully reproducible as possible. Given the complexity of the dependency solve that might be necessary to meet all dependency requirements, the lock file should not be edited by hand at all and should only be created or updated through use of `pip-tools`'s `pip-compile` command.
 The lock file should be kept under version control though so that any build of the Docker image's environment is fully reproducible in the future.
+
+## Updating the environment
+
+The lock file is compiled from the `requirements.txt` using `pip-compile`
+
+https://github.com/illinois-mla/phys-398-mla-image/blob/aa73f8b3e74125552b6cbb23220f8d1a56e37f69/docker/compile_dependencies.sh#L10-L13
+
+A helper script `compile_dependencies.sh` is provided inside of the `docker` directory that can be run inside of a Python virtual environment
+
+```console
+bash compile_dependencies.sh
+```
+
+to produce the lock file that would be generated for that version of CPython.
+
+To update the Python environment, a developer should:
+
+1. Add to or revise the dependencies defined in the high level `requirements.txt`.
+2. Compile the lock file from the updated `requirements.txt` using `compile_dependencies.sh`.
+3. Commit both the updated `requirements.txt` and `requirements.lock` to version control.
+4. Rebuild the Docker image with the updated files.
 
 [pip-tools]: https://pip-tools.rtfd.io/
 [PEP 440]: https://peps.python.org/pep-0440/
